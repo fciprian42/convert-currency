@@ -1,0 +1,73 @@
+$primary: #4b7bec;
+$secondary: #3867d6;
+
+@mixin flexBloc ($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+::selection {
+  background-color: $primary;
+  color: white;
+}
+
+.root {
+  height: 100vh;
+}
+
+.devise {
+  background-color: $secondary;
+}
+
+.convert {
+  position: relative;
+  padding: 24px 16px;
+  height: 100%;
+  @include flexBloc(space-between, center, column);
+}
+
+.result {
+  position: relative;
+  padding: 24px 16px;
+  height: 100%;
+  color: #cef;
+  @include flexBloc(center, center, column);
+}
+
+.form {
+  width: 75%;
+  @include flexBloc(center, center, column);
+
+  .svg {
+    font-size: 3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+.subtitle {
+  font-size: 14px;
+  position: absolute;
+  right: 35px;
+  color: #737373;
+}
+
+.selectSVG svg {
+  top: calc(50% - 4px);
+}
+
+@media screen and (max-width: 375px) {
+  .devise {
+    width: 100%;
+  }
+
+  .container {
+    flex-wrap: wrap-reverse!important;
+  }
+
+  .selectSVG, .input {
+    width: 100%!important;
+  }
+}
